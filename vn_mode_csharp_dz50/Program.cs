@@ -30,7 +30,8 @@ public class Program
 
         List<Car> cars = new List<Car> { car1, car2 };
 
-        while (true)
+        bool isWorking = true;
+        while (isWorking)
         {
             Console.WriteLine();
             Console.WriteLine(DisplayStatusMessage);
@@ -49,7 +50,6 @@ public class Program
                     case DisplayStatusChoice:
                         carService.DisplayStatus();
                         break;
-
                     case RepairCarChoice:
                         if (cars.Count > 0)
                         {
@@ -61,10 +61,9 @@ public class Program
                             Console.WriteLine(NoCarsMessage);
                         }
                         break;
-
                     case ExitChoice:
-                        return;
-
+                        isWorking = false;
+                        break;
                     default:
                         Console.WriteLine(WrongChoiceMessage);
                         break;
